@@ -1,7 +1,7 @@
 # Your solution to Exercise 13
 verif = False
 while not verif:
-  nums4 = input("Enter a year: ")
+  nums4 = input("Enter a four digit number: ")
   if len(nums4) == 4:
     verif = True
   try:
