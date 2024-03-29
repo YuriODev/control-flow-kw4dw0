@@ -1,4 +1,3 @@
-# Your solution to Exercise 15
 verif = False
 while not verif:
   day = int(input("Enter a day: "))
@@ -13,22 +12,27 @@ while not verif:
 str_date_next = ""
 
 if month in (1, 3, 5, 7, 8, 10, 12):
-  if day != 31:
+  if day < 31:
     str_date_next += f"{day+1}."
-  else:
+  elif day == 31:
     str_date_next += "1."
     month += 1
 elif month == 2:
-  if day != 28:
+  if day not in (28, 29):
     str_date_next += f"{day+1}."
   else:
     if (year % 4 == 0) and (year % 100 != 0) or (year % 400 == 0):
-      str_date_next += f"{day+1}."
+      if day == 28:
+        str_date_next += f"{day+1}."
+      elif day == 29:
+        str_date_next += "1."
+        month += 1
     else:
-      str_date_next += "1."
-      month += 1
+      if day == 28:
+        str_date_next += "1."
+        month += 1
 else:
-  if day != 30:
+  if day < 30:
     str_date_next += f"{day+1}."
   else:
     str_date_next += "1."
